@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 require('dotenv/config');
 
 // Configuration and Connection to Database
-const InitiateMongoServer = require("./config/db");
+const InitiateMongoServer = require("../functions/config/db");
 InitiateMongoServer();
 
 const app = express();
@@ -13,10 +13,10 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 // Router's
-const user = require("./routes/user");
-const postRoute = require('./routes/posts');
-const registerRoute = require('./routes/registers');
-const expenseRoute = require('./routes/expense');
+const user = require("../functions/routes/user");
+const postRoute = require('../functions/routes/posts');
+const registerRoute = require('../functions/routes/registers');
+const expenseRoute = require('../functions/routes/expense');
 
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
