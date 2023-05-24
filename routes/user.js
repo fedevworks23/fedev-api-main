@@ -173,8 +173,6 @@ router.get("/all-users", auth, async (req, res) => {
 router.put("/:userID", async (req, res) => {
   try {
     const user = await User.findById(req.params.userID);
-    console.log(req.params.userID, "===req");
-    console.log(user, "===user");
     user.set(req.body);
     const result = await user.save();
     res.send(result);
@@ -186,7 +184,6 @@ router.put("/:userID", async (req, res) => {
 
 // To delete resgistered user
 router.delete("/:userID", async (req, res) => {
-  console.log(req.params.userID)
   try {
     // request.user is getting fetched from Middleware after token authentication
     const deleteUser = await User.deleteOne({ _id: req.params.userID });

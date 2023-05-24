@@ -33,7 +33,7 @@ app.use('/expense', expenseRoute);
 app.use('/register', registerRoute);
 
 app.get('/', (req, res) => {
-  console.log(req);
+  // console.log(req);
   res.send('API Working');
 });
 
